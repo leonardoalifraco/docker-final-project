@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER leonardo.alifraco@gmail.com
+MAINTAINER lalifraco@devspark.com
 
 # Update apt repositories and upgrade system / applications
 RUN sudo apt-get -y update # && apt-get -y upgrade
