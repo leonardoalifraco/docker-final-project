@@ -3,7 +3,7 @@ FROM ubuntu:14.04.2
 MAINTAINER lalifraco@devspark.com
 
 # Update apt repositories and upgrade system / applications
-RUN sudo apt-get -y update # && apt-get -y upgrade
+RUN sudo apt-get -y update
 
 # Install apache, php5 and mysql 
 RUN sudo apt-get install -y apache2 \
