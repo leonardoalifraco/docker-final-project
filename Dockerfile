@@ -32,8 +32,9 @@ ENV WORLD_API_SERVER_NAME api.world.com.ar
 
 EXPOSE 80
 
-ADD ./apache2.conf /etc/apache2/apache2.conf
-ADD ./worldapi.con /etc/apache2/sites-available/worldapi.conf
+# Copy apache configuration files
+COPY ./apache2.conf /etc/apache2/apache2.conf
+COPY ./worldapi.con /etc/apache2/sites-available/worldapi.conf
 
 RUN a2ensite worldapi.conf
 
