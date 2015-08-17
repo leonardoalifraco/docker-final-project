@@ -1,1 +1,6 @@
-#Please complete this file
+web:
+  build: .
+  ports:
+    - "49155:80"
+  volumes:
+    - ./worldapi:/opt/www/worldapi
