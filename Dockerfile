@@ -30,12 +30,12 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 ENV WORLD_API_DOCUMENT_ROOT /opt/www/worldapi/public/
 ENV WORLD_API_SERVER_NAME api.world.com.ar
 
-EXPOSE 80
-
 # Copy apache configuration files
 COPY ./apache2.conf /etc/apache2/apache2.conf
-COPY ./worldapi.con /etc/apache2/sites-available/worldapi.conf
+COPY ./worldapi.conf /etc/apache2/sites-available/worldapi.conf
 
 RUN a2ensite worldapi.conf
+
+EXPOSE 80
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
