@@ -36,6 +36,11 @@ COPY ./worldapi.conf /etc/apache2/sites-available/worldapi.conf
 
 RUN a2ensite worldapi.conf
 
+# Copy entrypoint script and set it
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod 100 /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+
 EXPOSE 80
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
