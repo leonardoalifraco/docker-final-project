@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:14.04.2
 
 MAINTAINER lalifraco@devspark.com
 
@@ -6,11 +6,21 @@ MAINTAINER lalifraco@devspark.com
 RUN sudo apt-get -y update # && apt-get -y upgrade
 
 # Install apache, php5 and mysql 
-RUN sudo apt-get install -y apache2 libapache2-mod-php5 php5-mysql php5-gd php-pear php-apc php5-curl curl lynx-cur
+RUN sudo apt-get install -y apache2 \
+	libapache2-mod-php5 \
+	php5-mysql \
+	php5-gd \
+	php-pear \
+	php-apc \
+	php5-curl \
+	curl \
+	lynx-cur
 
+# Enable apache mods
 RUN a2enmod php5
 RUN a2enmod rewrite
 
+# Define environment variables
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
